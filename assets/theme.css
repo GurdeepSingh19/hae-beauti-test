@@ -13856,3 +13856,8 @@ input.qtyplus, input.qtyminus {
 #easter-bunny.running {
   animation: run-across 5s linear forwards;
 }
+
+#easter-bunny.flip img {
+  transform: scaleX(-1); /* flips the bunny */
+}
+
