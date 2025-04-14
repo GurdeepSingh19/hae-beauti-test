@@ -13843,3 +13843,16 @@ input.qtyplus, input.qtyminus {
   border-radius: 10px;
   padding: 0px 0px 0px 0px;
 }
+
+/* Custom Css */
+
+/* Bunny Css*/
+
+@keyframes hop {
+  0% { transform: translateY(0); }
+  50% { transform: translateY(-20px); }
+  100% { transform: translateY(0); }
+}
+#easter-bunny img {
+  animation: hop 0.5s infinite;
+}
