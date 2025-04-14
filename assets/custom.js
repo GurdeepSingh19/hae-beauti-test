@@ -63,3 +63,37 @@ function parcelamento() {
 $(".block-swatch__radio").change(function () {
   setTimeout(function () { parcelamento(); }, 150);
 });
+
+(function() {
+  const bunny = document.getElementById('easter-bunny');
+  const screenWidth = window.innerWidth;
+  const screenHeight = window.innerHeight;
+
+  function showBunny() {
+    const x = Math.random() * (screenWidth - 100);
+    const y = Math.random() * (screenHeight - 100);
+    bunny.style.left = `${x}px`;
+    bunny.style.top = `${y}px`;
+    bunny.style.display = 'block';
+
+    setTimeout(() => {
+      bunny.style.display = 'none';
+    }, 3000); // Bunny disappears after 3 seconds
+  }
+
+  function startBunnyLoop() {
+    setInterval(() => {
+      if (Math.random() < 0.5) { // Random chance to appear
+        showBunny();
+      }
+    }, 8000); // Every 8 seconds, maybe show bunny
+  }
+
+  bunny.addEventListener('click', function() {
+    bunny.style.display = 'none';
+    alert("You caught the bunny! 🎉 Use code BUNNY10 for 10% off!");
+    // Optionally add: copy code to clipboard or open popup
+  });
+
+  document.addEventListener('DOMContentLoaded', startBunnyLoop);
+})();
