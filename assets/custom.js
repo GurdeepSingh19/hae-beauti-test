@@ -64,37 +64,70 @@ $(".block-swatch__radio").change(function () {
   setTimeout(function () { parcelamento(); }, 150);
 });
 
-(function(){
+(function() {
   const bunny = document.getElementById('easter-bunny');
+  const img = bunny.querySelector('img');
+  let running = false;
 
-  function hopAcross() {
-    const direction = Math.random() > 0.5 ? 'left' : 'right';
-    bunny.style.left = direction === 'left' ? '-100px' : '100vw';
-    bunny.style.bottom = `${Math.floor(Math.random() * 40) + 10}%`;
+  function hop(direction = 'right') {
+    bunny.classList.remove('flip');
+    bunny.style.left = direction === 'right' ? '-100px' : '100vw';
+    bunny.style.bottom = `${Math.floor(Math.random() * 50) + 10}%`;
     bunny.style.display = 'block';
-    bunny.classList.remove('running'); // reset if needed
+
+    // Set direction
+    if (direction === 'left') bunny.classList.add('flip');
 
     // Force reflow to restart animation
     void bunny.offsetWidth;
 
     bunny.classList.add('running');
+    running = true;
 
     setTimeout(() => {
       bunny.style.display = 'none';
       bunny.classList.remove('running');
-    }, 5000); // duration of run
+      running = false;
+    }, 5000);
+  }
+
+  function flipAndRunAway() {
+    if (!running) return;
+    const currentLeft = parseFloat(bunny.style.left);
+    const direction = currentLeft > window.innerWidth / 2 ? 'left' : 'right';
+    hop(direction);
+  }
+
+  function checkCursorProximity(e) {
+    if (!running) return;
+    const rect = bunny.getBoundingClientRect();
+    const buffer = 80;
+
+    const cursorNear =
+      e.clientX > rect.left - buffer &&
+      e.clientX < rect.right + buffer &&
+      e.clientY > rect.top - buffer &&
+      e.clientY < rect.bottom + buffer;
+
+    if (cursorNear) {
+      flipAndRunAway();
+    }
   }
 
   bunny.addEventListener('click', () => {
     bunny.style.display = 'none';
     alert("🎉 You caught the bunny! Use code BUNNY10 at checkout.");
-    // Optional: copy code to clipboard
   });
+
+  document.addEventListener('mousemove', checkCursorProximity);
 
   document.addEventListener('DOMContentLoaded', () => {
     setInterval(() => {
-      if (Math.random() < 0.7) hopAcross();
-    }, 15000); // every 15s, maybe show bunny
+      if (Math.random() < 0.7) {
+        const direction = Math.random() > 0.5 ? 'right' : 'left';
+        hop(direction);
+      }
+    }, 15000);
   });
 })();
 
