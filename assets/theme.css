@@ -13848,11 +13848,11 @@ input.qtyplus, input.qtyminus {
 
 /* Bunny Css*/
 
-@keyframes hop {
-  0% { transform: translateY(0); }
-  50% { transform: translateY(-20px); }
-  100% { transform: translateY(0); }
+@keyframes run-across {
+  from { left: -100px; }
+  to { left: 100vw; }
 }
-#easter-bunny img {
-  animation: hop 0.5s infinite;
+
+#easter-bunny.running {
+  animation: run-across 5s linear forwards;
 }

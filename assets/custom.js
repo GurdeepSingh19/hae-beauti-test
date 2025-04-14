@@ -64,36 +64,37 @@ $(".block-swatch__radio").change(function () {
   setTimeout(function () { parcelamento(); }, 150);
 });
 
-(function() {
+(function(){
   const bunny = document.getElementById('easter-bunny');
-  const screenWidth = window.innerWidth;
-  const screenHeight = window.innerHeight;
 
-  function showBunny() {
-    const x = Math.random() * (screenWidth - 100);
-    const y = Math.random() * (screenHeight - 100);
-    bunny.style.left = `${x}px`;
-    bunny.style.top = `${y}px`;
+  function hopAcross() {
+    const direction = Math.random() > 0.5 ? 'left' : 'right';
+    bunny.style.left = direction === 'left' ? '-100px' : '100vw';
+    bunny.style.bottom = `${Math.floor(Math.random() * 40) + 10}%`;
     bunny.style.display = 'block';
+    bunny.classList.remove('running'); // reset if needed
+
+    // Force reflow to restart animation
+    void bunny.offsetWidth;
+
+    bunny.classList.add('running');
 
     setTimeout(() => {
       bunny.style.display = 'none';
-    }, 3000); // Bunny disappears after 3 seconds
+      bunny.classList.remove('running');
+    }, 5000); // duration of run
   }
 
-  function startBunnyLoop() {
-    setInterval(() => {
-      if (Math.random() < 0.5) { // Random chance to appear
-        showBunny();
-      }
-    }, 8000); // Every 8 seconds, maybe show bunny
-  }
-
-  bunny.addEventListener('click', function() {
+  bunny.addEventListener('click', () => {
     bunny.style.display = 'none';
-    alert("You caught the bunny! 🎉 Use code BUNNY10 for 10% off!");
-    // Optionally add: copy code to clipboard or open popup
+    alert("🎉 You caught the bunny! Use code BUNNY10 at checkout.");
+    // Optional: copy code to clipboard
   });
 
-  document.addEventListener('DOMContentLoaded', startBunnyLoop);
+  document.addEventListener('DOMContentLoaded', () => {
+    setInterval(() => {
+      if (Math.random() < 0.7) hopAcross();
+    }, 15000); // every 15s, maybe show bunny
+  });
 })();
+
