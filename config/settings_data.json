@@ -713,7 +713,14 @@
       "1649489657b78ca727",
       "c9aaa968-c4f9-4b90-bfaf-5286d3ff0855",
       "16153541158fc73818"
-    ]
+    ],
+    "blocks": {
+      "3138269044488530766": {
+        "type": "shopify://apps/uppromote-affiliate/blocks/core-script/64c32457-930d-4cb9-9641-e24c0d9cf1f4",
+        "disabled": false,
+        "settings": {}
+      }
+    }
   },
   "presets": {
     "Metal": {
