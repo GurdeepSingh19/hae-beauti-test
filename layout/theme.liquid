@@ -192,34 +192,55 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 <!-- Não remova. Checkout Yampi. -->
 
 <script src="https://cdn.inops.io/inops-web-sdk@1.1.1/index.global.js"></script>
+
 <script>
-  (async function () {
-    if (!window.Inops) return;
+(async function () {
+  if (!window.Inops) {
+    console.error("Inops SDK not loaded");
+    return;
+  }
 
-    var client = window.Inops.createInopsClient({
-      searchKey: "pDyz7hhXv4nyGVxEzRjC48dULjLd4lnSSnQ8aliR",
-      apiUrl: "https://api.inops.io",
-    });
+  var API_URL = "https://api.inops.io";
+  var SEARCH_KEY = "pDyz7hhXv4nyGVxEzRjC48dULjLd4lnSSnQ8aliR";
 
-    // Trigger a search — replace with your search input value
-    var query = "your search term";
+  var client = window.Inops.createInopsClient({
+    searchKey: SEARCH_KEY,
+    apiUrl: API_URL,
+  });
+
+  // Replace with real input
+  var query = document.querySelector('input[type="search"]')?.value || "broccoli";
+
+  try {
     var session = await client.search(query);
+
+    if (!session || !session.sessionId) {
+      console.error("Invalid session response:", session);
+      return;
+    }
+
     var sessionId = session.sessionId;
 
-    // Listen for results via SSE
     var unsub = window.Inops.subscribeToSessionSse(
-      "https://api.inops.io",
+      API_URL,
       sessionId,
-      "pDyz7hhXv4nyGVxEzRjC48dULjLd4lnSSnQ8aliR",
+      SEARCH_KEY,
       function (event) {
         if (event.event === "ranked-results") {
           var products = event.data?.products || [];
           console.log("Inops results:", products);
         }
-        if (event.event === "flow-end") { unsub(); }
+
+        if (event.event === "flow-end") {
+          unsub();
+        }
       }
     );
-  })();
+
+  } catch (err) {
+    console.error("Inops search failed:", err);
+  }
+})();
 </script>
 </body>
 </html>
