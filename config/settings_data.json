@@ -79,6 +79,13 @@
     "social_snapchat": "",
     "social_fancy": "",
     "favicon": "shopify://shop_images/FAVICON_33.png",
+    "swym_advanced_collections_wishlist_enabled": true,
+    "swym_header_icon_enabled": true,
+    "swym_header_icon_show_count": true,
+    "swym_header_icon_custom_html": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewbox=\"0 0 24 24\" width=\"37\" fill=\"var(--header-text-color)\"><path d=\"M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z\"></path></svg>",
+    "swym_header_icon_custom_css": ".swym-wishlist-icon-bar-btn svg { fill: var(--header-text-color); transition: opacity 0.2s ease; } .swym-wishlist-icon-bar-btn:hover svg { opacity: 0.7; }",
+    "swym_header_icon_selector_desktop": ".header__action-item--cart",
+    "swym_header_icon_selector_mobile": ".header__action-item--cart",
     "checkout_header_image": "",
     "checkout_logo_image": "shopify://shop_images/Design_sem_nome_20.png",
     "checkout_logo_position": "center",
@@ -741,9 +748,7 @@
         "disabled": false,
         "settings": {}
       }
-    },
-    "swym_advanced_collections_wishlist_enabled": true,
-    "swym_header_icon_enabled": false
+    }
   },
   "presets": {
     "Metal": {
