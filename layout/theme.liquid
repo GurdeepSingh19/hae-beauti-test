@@ -151,6 +151,37 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
     <script> var ryviu_global_settings = {{shop.metafields.ryviu.user_settings }};</script>
 <!-- RYVIU APP -->
   <script src="https://shop.fxcommerce.net/init.js"></script>
+
+  <script src="https://cdn.inops.io/inops-web-sdk@1.1.1/index.global.js"></script>
+<script>
+  (async function () {
+    if (!window.Inops) return;
+
+    var client = window.Inops.createInopsClient({
+      searchKey: "pDyz7hhXv4nyGVxEzRjC48dULjLd4lnSSnQ8aliR",
+      apiUrl: "https://api.inops.io",
+    });
+
+    // Trigger a search — replace with your search input value
+    var query = "your search term";
+    var session = await client.search(query);
+    var sessionId = session.sessionId;
+
+    // Listen for results via SSE
+    var unsub = window.Inops.subscribeToSessionSse(
+      "https://api.inops.io",
+      sessionId,
+      "pDyz7hhXv4nyGVxEzRjC48dULjLd4lnSSnQ8aliR",
+      function (event) {
+        if (event.event === "ranked-results") {
+          var products = event.data?.products || [];
+          console.log("Inops results:", products);
+        }
+        if (event.event === "flow-end") { unsub(); }
+      }
+    );
+  })();
+</script>
 </head>
 
   <body class="warehouse--v1 {% if settings.animation_image_zoom %}features--animate-zoom{% endif%} template-{{ request.page_type | handle }} {% if request.page_type contains '/' %}template-{{ request.page_type | split: '/' | last | handle }}{% endif %}" data-instant-intensity="viewport"><!--tema modificado pelo @sabinoss79-->  
