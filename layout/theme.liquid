@@ -202,7 +202,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     });
 
     // Trigger a search — replace with your search input value
-    var query = "your search term";
+    var query = {{ search.terms }};
     var session = await client.search(query);
     var sessionId = session.sessionId;
 
