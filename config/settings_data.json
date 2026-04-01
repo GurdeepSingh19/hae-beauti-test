@@ -722,31 +722,20 @@
       "16153541158fc73818"
     ],
     "blocks": {
-      "3138269044488530766": {
-        "type": "shopify://apps/uppromote-affiliate/blocks/core-script/64c32457-930d-4cb9-9641-e24c0d9cf1f4",
-        "disabled": false,
-        "settings": {}
-      },
-      "17745560548536979745": {
-        "type": "shopify://apps/swym-relay/blocks/wishlist-app-embed/80c3b1fc-3a8f-407e-8367-ffdeebb8b612",
+      "8183701962187534751": {
+        "type": "shopify://apps/wc-wishlist-back-in-stock/blocks/wishlist-script/582a225b-bd58-49d0-b0b6-9479192e79c5",
         "disabled": false,
         "settings": {
-          "storefront_layout_enabled": false,
-          "storefront_layout_primary_bg_color": "#000000",
-          "storefront_layout_primary_text_color": "#ffffff",
-          "storefront_layout_secondary_bg_color": "#F4F8FE",
-          "storefront_layout_secondary_text_color": "#333333",
-          "storefront_layout_ui_border_radius": 6,
-          "storefront_layout_notification_position": "left",
-          "storefront_layout_action_popup_position": "left",
-          "storefront_layout_drawer_position": "left",
-          "storefront_layout_as_section_page": ""
+          "wc_show_floating": false,
+          "wc_floating_icon": "",
+          "wc_floating_width": 20,
+          "wc_floating_padding": 10,
+          "wc_floating_position": "bottom-right",
+          "wc_floating_vertical": 15,
+          "wc_floating_horizontal": 15,
+          "wc_floating_bg_color": "#cdfe91",
+          "wc_floating_text_color": "#121212"
         }
-      },
-      "17745560548531917108": {
-        "type": "shopify://apps/swym-relay/blocks/storefront-ui-elements/80c3b1fc-3a8f-407e-8367-ffdeebb8b612",
-        "disabled": false,
-        "settings": {}
       }
     }
   },
