@@ -752,8 +752,14 @@
           "storefront_layout_drawer_position": "left",
           "storefront_layout_as_section_page": ""
         }
+      },
+      "17750743913692039064": {
+        "type": "shopify://apps/swym-relay/blocks/storefront-ui-elements/80c3b1fc-3a8f-407e-8367-ffdeebb8b612",
+        "disabled": false,
+        "settings": {}
       }
-    }
+    },
+    "swym_header_icon_count_bubble_html": ""
   },
   "presets": {
     "Metal": {
