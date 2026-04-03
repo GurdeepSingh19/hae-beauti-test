@@ -83,6 +83,7 @@
     "swym_header_icon_enabled": true,
     "swym_header_icon_show_count": true,
     "swym_header_icon_custom_html": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewbox=\"0 0 24 24\" width=\"37\" fill=\"var(--header-text-color)\"><path d=\"M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z\"></path></svg>",
+    "swym_header_icon_count_bubble_html": "",
     "swym_header_icon_custom_css": ".swym-wishlist-icon-bar-btn svg { fill: var(--header-text-color); transition: opacity 0.2s ease; } .swym-wishlist-icon-bar-btn:hover svg { opacity: 0.7; }",
     "swym_header_icon_selector_desktop": ".header__action-item--cart",
     "swym_header_icon_selector_mobile": ".header__action-item--cart",
@@ -737,14 +738,19 @@
           "wc_floating_text_color": "#121212"
         }
       },
-      "17750741789206493251": {
-        "type": "shopify://apps/swym-relay/blocks/wishlist-app-embed/80c3b1fc-3a8f-407e-8367-ffdeebb8b612",
+      "17750743913692039064": {
+        "type": "shopify://apps/swym-relay/blocks/storefront-ui-elements/80c3b1fc-3a8f-407e-8367-ffdeebb8b612",
         "disabled": false,
+        "settings": {}
+      },
+      "17750741789206493251": {
+        "type": "shopify://apps/wishlist-plus/blocks/wishlist-app-embed/80c3b1fc-3a8f-407e-8367-ffdeebb8b612",
+        "disabled": true,
         "settings": {
           "storefront_layout_enabled": false,
           "storefront_layout_primary_bg_color": "#000000",
           "storefront_layout_primary_text_color": "#ffffff",
-          "storefront_layout_secondary_bg_color": "#F4F8FE",
+          "storefront_layout_secondary_bg_color": "#f4f8fe",
           "storefront_layout_secondary_text_color": "#333333",
           "storefront_layout_ui_border_radius": 6,
           "storefront_layout_notification_position": "left",
@@ -752,14 +758,8 @@
           "storefront_layout_drawer_position": "left",
           "storefront_layout_as_section_page": ""
         }
-      },
-      "17750743913692039064": {
-        "type": "shopify://apps/swym-relay/blocks/storefront-ui-elements/80c3b1fc-3a8f-407e-8367-ffdeebb8b612",
-        "disabled": false,
-        "settings": {}
       }
-    },
-    "swym_header_icon_count_bubble_html": ""
+    }
   },
   "presets": {
     "Metal": {
